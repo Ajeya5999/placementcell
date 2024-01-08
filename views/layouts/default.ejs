@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Placement Cell | <%= title %></title>
+
+        <!-- Incuding CSS for layout and particals -->
+
+        <link rel="stylesheet" href="/css/default.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <%- style %> <!-- Styles for other partials -->
+
+    </head>
+    <body>
+        <%- include('../partials/_header'); -%>  <!-- render the header partial -->
+
+        <div class="whitespace" id="header-space"></div> <!-- for compensating for the missing space of the header -->
+
+        <!-- Layout -->
+
+        <main id="layout-main">
+            <%- body -%> <!-- render the necessary partials -->
+        </main>
+
+        <%- script %> <!-- Scripts for other partials -->
+    </body>
+</html>

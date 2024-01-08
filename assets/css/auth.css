@@ -1,0 +1,31 @@
+/* General Properties */
+
+:root {
+    --primary-theme-color: #EF4825;
+    --secondary-theme-color: white;
+    --tertiay-theme-color: #404041;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+div {
+    display: inline-block;
+}
+
+.image-container > img {
+    max-width: 100%;
+}
+
+/* Main Layout */
+
+#layout-main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

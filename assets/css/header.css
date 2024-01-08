@@ -1,0 +1,33 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-theme-color);
+    height: 10vh;
+}
+
+#website-title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 35%;
+}
+
+#weibsite-logo-container {
+    background-color: white;
+    width: 30%;
+}
+
+#site-title {
+    font-size: 3rem;
+}
+
+#site-options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+    font-size: 1.5rem;
+}

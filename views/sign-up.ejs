@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/css/sign-up.css">
+
+<div id="sign-up-container">
+    <div class="image-container" id="logo-container">
+        <img src="/images/logo.png" alt="Site Logo">
+    </div> 
+    <form id="website-sign-up" method="post" action="/users/create">
+        <div class="form-element">
+            <label for="sign-up-email">Email</label>
+            <input type="text" id="sign-up-email" placeholder="abc@xyz.com" autocomplete="email" required> <br>
+        </div>
+        <div class="form-element">
+            <label for="sign-up-password">Password</label>
+            <input type="password" id="sign-up-password" autocomplete="new-password" required> <br>
+        </div>
+        <div class="form-element">
+            <label for="sign-up-confirm-password">Confirm Password</label>
+            <input type="password" id="sign-up-confirm-password" autocomplete="new-password" required> <br> 
+        </div>
+            <button type="submit">Sign Up</button>
+    </form>
+</div>
