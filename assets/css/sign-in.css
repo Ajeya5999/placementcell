@@ -1,16 +1,16 @@
-#sign-up-container {
-  width: 40%;
-  height: 65vh;
-  font-size: 1.6rem;
-  background-color: var(--primary-theme-color);
+#sign-in-container {
+    width: 40%;
+    height: 55vh;
+    font-size: 1.6rem;
+    background-color: var(--primary-theme-color);
 }
-
+  
 #logo-container {
     background-color: var(--secondary-theme-color);
     width: 70%;
     margin: 3vh 15% 2vh 15%;
 }
-
+  
 form {
     width: 80%;
     display: flex;
@@ -19,20 +19,20 @@ form {
     align-items: center;
     margin: 0 10%;
 }
-
+  
 .form-element {
     width: 100%;
     position: relative;
     margin: 3% 0;
 }
-
+  
 form input {
     font-size: 1.6rem;
     width: 50%;
     position: absolute;
     right: 0;
 }
-
+  
 button {
     font-size: 2rem;
     margin: 10% 0;

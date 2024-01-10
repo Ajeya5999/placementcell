@@ -1,8 +1,18 @@
+<link rel="stylesheet" href="/css/sign-in.css">
+
 <div id="sign-in-container">
     <div class="image-container" id="logo-container">
         <img src="/images/logo.png" alt="Site Logo">
     </div> 
-    <form id="" method="" action="">
-        <input idf
+    <form id="website-sign-in" method="post" action="/users/create_session">
+        <div class="form-element">
+            <label for="sign-in-email">Email</label>
+            <input type="text" id="sign-in-email" name="email" placeholder="abc@xyz.com" autocomplete="email" required>
+        </div>
+        <div class="form-element">
+            <label for="sign-in-password">Password</label>
+            <input type="password" id="sign-in-password" name="password" autocomplete="new-password" required>
+        </div>
+            <button type="submit">Log In</button>
     </form>
 </div>

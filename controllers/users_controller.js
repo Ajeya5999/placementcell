@@ -27,3 +27,10 @@ module.exports.create = async function(req, res) {
         console.log("error", err);
     }
 }
+
+module.exports.signIn = function(req, res) {
+    return res.render('sign-in', {
+        title: 'Sign In',
+        layout: './layouts/auth'
+    });
+}
