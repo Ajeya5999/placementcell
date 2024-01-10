@@ -1,12 +1,12 @@
 #sign-up-container {
   width: 40%;
-  height: 60vh;
+  height: 65h;
   font-size: 1.6rem;
   background-color: var(--primary-theme-color);
 }
 
 #logo-container {
-    background-color: var(--secondary-color-theme);
+    background-color: var(--secondary-theme-color);
     width: 70%;
     margin: 3vh 15% 2vh 15%;
 }
@@ -37,7 +37,7 @@ button {
     font-size: 2rem;
     margin: 10% 0;
     border-width: 0;
-    background-color: var(--tertiary-color-theme);
-    color: var(--secondary-color-theme);
+    background-color: var(--tertiary-theme-color);
+    color: var(--secondary-theme-color);
     padding: 10px;
 }

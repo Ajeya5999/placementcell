@@ -8,6 +8,14 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 8000;
 
+//Using Mongoose for mongoDB
+
+const db = require('./config/mongoose');
+
+//Using encoding to get data
+
+app.use(express.urlencoded());
+
 //Setting up ejs layouts
 
 const expressLayouts = require('express-ejs-layouts');

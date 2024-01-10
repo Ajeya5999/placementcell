@@ -6,16 +6,20 @@
     </div> 
     <form id="website-sign-up" method="post" action="/users/create">
         <div class="form-element">
+            <label for="sign-up-name">Name</label>
+            <input type="text" id="sign-up-name" name="name" required>
+        </div>
+        <div class="form-element">
             <label for="sign-up-email">Email</label>
-            <input type="text" id="sign-up-email" placeholder="abc@xyz.com" autocomplete="email" required> <br>
+            <input type="text" id="sign-up-email" name="email" placeholder="abc@xyz.com" autocomplete="email" required>
         </div>
         <div class="form-element">
             <label for="sign-up-password">Password</label>
-            <input type="password" id="sign-up-password" autocomplete="new-password" required> <br>
+            <input type="password" id="sign-up-password" name="password" autocomplete="new-password" required>
         </div>
         <div class="form-element">
             <label for="sign-up-confirm-password">Confirm Password</label>
-            <input type="password" id="sign-up-confirm-password" autocomplete="new-password" required> <br> 
+            <input type="password" id="sign-up-confirm-password" name="confirm_password" autocomplete="new-password" required> 
         </div>
             <button type="submit">Sign Up</button>
     </form>
