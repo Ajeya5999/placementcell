@@ -1,4 +1,4 @@
-// Getting Enviroment Variables
+//Getting Enviroment Variables
 
 require('dotenv').config();
 
@@ -11,6 +11,20 @@ const port = process.env.PORT || 8000;
 //Using Mongoose for mongoDB
 
 const db = require('./config/mongoose');
+
+//Getting Passport
+
+const passport = require('passport');
+const passportLocal = require('./config/passport_local_strategy');
+
+//Getting express session and connect mongo for storing sessions
+
+const session = require('express-session');
+const connectMongo = require('connect-mongo'); 
+
+//Getting Flash
+
+const flash = require('express-flash');
 
 //Using encoding to get data
 
@@ -32,6 +46,30 @@ app.use(expressLayouts);
 app.set('layout', './layouts/default');
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
+
+//Using express flash
+
+app.use(flash());
+
+//Using Express session with connect mongo
+
+app.use(session({
+    name: 'Placement Cell',
+    secret: process.env.SESSION_SECRET,
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        maxAge: (1000 * 60 * 100)
+    },
+    store: connectMongo.create({ mongoUrl: process.env.CONNECTMONGO_SESSION_LINK})
+}));
+
+//Using passport for Authentication
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(passport.setAuthenticatedUser);
+
 
 //Setting up routes
 
