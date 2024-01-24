@@ -2,6 +2,8 @@
 
 :root {
     --primary-theme-color: #EF4825;
+    --seconday-theme-color: black;
+    --tertiary-theme-color: #404041;
 }
 
 body {
@@ -16,4 +18,10 @@ div {
 
 .image-container > img {
     max-width: 100%;
+}
+
+/* Main */
+
+main {
+    position: relative;
 }

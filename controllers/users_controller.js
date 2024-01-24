@@ -45,8 +45,7 @@ module.exports.signIn = function(req, res) {
 }
 
 module.exports.createSession = function(req, res){
-    console.log("logged in");
-    // req.flash('info', "logged in");
+    req.flash('info', "logged in");
     return res.redirect('/');
 };
 
