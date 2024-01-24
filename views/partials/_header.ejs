@@ -8,8 +8,9 @@
         <div id="site-title">Placement Cell</div>
     </div>
     <div id="site-options">
-        <a>Students</a>
+        <% if(title != "Student List") { %> <a>Students</a> <% } %>
         <a>Interviews</a>
         <a>Job Listings</a>
+        <a href="/users/sign-out"> Logout </a>
     </div>
 </header>

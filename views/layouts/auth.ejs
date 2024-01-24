@@ -13,9 +13,17 @@
         <!-- Layout -->
 
         <main id="layout-main">
+
+            <% if(messages.error) { %>
+                <div id="error-message-container">
+                    <%= messages.error %>
+                </div>
+            <% } %>
+
             <%- body -%> <!-- render the necessary partials -->
         </main>
 
+        <script src="/javascript/auth.js"></script>
         <%- script %> <!-- Scripts for other partials -->
     </body>
 </html>

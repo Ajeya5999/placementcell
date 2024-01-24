@@ -1,5 +1,3 @@
-module.exports.student = function(req, res) {
-    return res.render('student', {
-        title: "Student List"
-    });
+module.exports.home = function(req, res) {
+    res.redirect('/dashboard/student');
 };

@@ -20,6 +20,7 @@ router.post('/create_session', passport.authenticate(
     'local',
     {failureRedirect: '/users/sign-in',
      failureFlash: true}
-), usersController.createSession);
+), usersController.createSession); // For Signing into the weebsite
+router.get('/sign-out', usersController.destroySession); // For signing out
 
 module.exports = router;

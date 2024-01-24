@@ -11,7 +11,7 @@ module.exports.signUp = function(req, res) {
 module.exports.create = async function(req, res) {
     let temp1 = req.body;
     if(temp1.password != temp1.confirm_password) {
-        console.log("The password is not confirmed");
+        req.flash('error', "The password is not confirmed");
         return res.redirect('back');
     }
     try {
@@ -26,7 +26,7 @@ module.exports.create = async function(req, res) {
             return res.redirect('/users/sign-in');
         }
         else {
-            console.log("User already exists!");
+            req.flash('error', "User already exists!");
             return res.redirect('back');
         }
     } catch(err) {
@@ -35,14 +35,28 @@ module.exports.create = async function(req, res) {
 }
 
 module.exports.signIn = function(req, res) {
-    return res.render('sign-in', {
-        title: 'Sign In',
-        layout: './layouts/auth'
-    });
+    if(!req.user) {
+        return res.render('sign-in', {
+            title: 'Sign In',
+            layout: './layouts/auth'
+        });
+    }
+    return res.redirect('/dashboard/student');
 }
 
 module.exports.createSession = function(req, res){
     console.log("logged in");
-    req.flash('message', "logged in");
+    // req.flash('info', "logged in");
     return res.redirect('/');
+};
+
+module.exports.destroySession = function(req, res){
+    req.logout(function(err){
+        if (err) { 
+            console.log(err);
+            return;
+        }
+        // req.flash('message', 'You have been logged out');
+        return res.redirect('/users/sign-in');
+    })
 };
