@@ -6,6 +6,77 @@
     </div>
 <% } %>
 
-
+<div id="student-container"> 
+    <div id="student-options-container">
+        <button id="show-list">Show Student List</button>
+        <button id="add-student">Add Student</button>
+    </div>
+    <div id="add-student-container" class="student-task-container">
+        <h1>Add Student</h1>
+        <form method="post" action="/student/add" id="add-student-form">
+            <div class="add-student-form-element">
+                <label for="student-name"> Student Name </label>
+                <input type="text" id="student-name" name="name" placeholder="Student's Full Name" autocomplete="name" required>
+            </div>
+            <div class="add-student-form-element">
+                <label for="student-batch"> Student Batch </label>
+                <input type="text" id="student-batch" name="batch" placeholder="Student's Batch" autocomplete="on" required>
+            </div>
+            <div class="add-student-form-element">
+                <label for="student-college"> Student College </label>
+                <input type="text" id="student-college" name="college" placeholder="Student's College" autocomplete="on" required>
+            </div>
+            <div class="add-student-form-element">
+                <label> 
+                    <div id="student-status-label"> Student Status </div> 
+                    <input type="radio" class="student-status" name="status" value="placed" required> Placed
+                    <input type="radio" class="student-status" name="status" value="not placed"> Not Placed 
+                </label>
+            </div>
+            <div class="add-student-form-element">
+                <label for="student-dsa-score"> DSA Final Score </label>
+                <input type="number" id="student-dsa-score" name="dsa_score" placeholder="DSA Score here" required>
+            </div>
+            <div class="add-student-form-element">
+                <label for="student-webd-score"> Web-D Final Score </label>
+                <input type="number" id="student-webd-score" name="webd_score" placeholder="Web-D Score here" required>
+            </div>
+            <div class="add-student-form-element">
+                <label for="student-react-score"> React Final Score </label>
+                <input type="number" id="student-react-score" name="react_score" placeholder="React Score here" required>
+            </div>
+            <button type="submit" class="add-student-form-element" id="add-student-form-submit">Add Student to List</button>
+        </form>
+    </div>
+    <div class="student-task-container" id="student-list-container">
+        <h1>Student List</h1>
+        <% if(student_list.length != 0) { %>
+            <table id="student-list">
+            <tr>
+                <th> Student Name </th>
+                <th> Student Batch </th>
+                <th> Student College </th>
+                <th> Student Status </th>
+                <th> DSA Final Score </th>
+                <th> Web-D Final Score </th>
+                <th> Reaact Final Score </th>
+            </tr>
+            <% for(student of student_list) { %>
+                <tr>
+                    <td> <%= student.name %> </td>
+                    <td> <%= student.batch %> </td>
+                    <td> <%= student.college %> </td>
+                    <td> <%= student.status %> </td>
+                    <td> <%= student.dsa_score %> </td>
+                    <td> <%= student.webd_score %> </td>
+                    <td> <%= student.react_score %> </td>
+                </tr>
+            <% } %>
+            </table>
+        <% } else { %>
+            <div id="no-students-found"> No Students are in the list </div>
+        <% } %>
+    </div>
+</div>
 
 <script src="/javascript/student.js"></script>
