@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="/css/interviews.css">
+
+<div id="interview-container"> 
+    <div id="interview-options-container">
+        <button id="show-list">Show interview List</button>
+        <button id="add-interview">Add Interview</button>
+    </div>
+    <div id="add-interview-container" class="interview-task-container">
+        <h1>Add Interview</h1>
+        <form method="post" action="/interview/add" id="add-interview-form">
+            <div class="add-interview-form-element">
+                <label for="interview-company"> Interviewing Company </label>
+                <input type="text" id="interview-company" name="company" placeholder="Interviewing Company's name" autocomplete="organization" required>
+            </div>
+            <div class="add-interview-form-element">
+                <label for="student-email"> Student email </label>
+                <select name="id" id="student-email" required>
+                    <% for (student of student_list) { %>
+                        <option value="<%= student._id %>"> <%= student.email %> </option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="add-interview-form-element">
+                <label for="interview-date"> Interview Date </label>
+                <input type="date" id="interview-date" name="date" placeholder="Interview Date" autocomplete="on" required>
+            </div>
+            <button type="submit" class="add-interview-form-element" id="add-interview-form-submit">Add Interview to List</button>
+        </form>
+    </div>
+    <div class="interview-task-container" id="interview-list-container">
+        <h1>Interview List</h1>
+        <% if(interview_list.length != 0) { %>
+            <table id="interview-list">
+            <tr>
+                <th> Interview Company </th>
+                <th> Interview Date </th>
+            </tr>
+            <% for(interview of interview_list) { %>
+                <tr>
+                    <td> <%= interview.company %> </td>
+                    <td> <%= interview.date.toString().substring(3, 15) %> </td>
+                </tr>
+            <% } %>
+            </table>
+        <% } else { %>
+            <div id="no-interview-found"> No Interviews are in the list </div>
+        <% } %>
+    </div>
+</div>
+
+<script src="/javascript/interviews.js"></script>

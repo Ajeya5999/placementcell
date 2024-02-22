@@ -6,24 +6,25 @@
 
         <link rel="stylesheet" href="/css/auth.css">
         <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="/css/view_notif.css">
         <%- style %> <!-- Styles for other partials -->
 
     </head>
     <body>
         <!-- Layout -->
 
-        <main id="layout-main">
+        <% if(messages.error) { %>
+            <div class="message-container">
+                <%= messages.error %>
+            </div>
+        <% } %>
 
-            <% if(messages.error) { %>
-                <div id="error-message-container">
-                    <%= messages.error %>
-                </div>
-            <% } %>
+        <main id="layout-main">
 
             <%- body -%> <!-- render the necessary partials -->
         </main>
 
-        <script src="/javascript/auth.js"></script>
+        <script src="/javascript/view_notif.js"></script>
         <%- script %> <!-- Scripts for other partials -->
     </body>
 </html>

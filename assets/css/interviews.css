@@ -1,0 +1,65 @@
+/* General Properties */
+
+h1 {
+    text-align: center;
+}
+
+#interview-options-container button {
+    font-size: 0.9rem;
+}
+
+.interview-task-container {
+    border: solid var(--secondary-theme-color) 3px;
+    border-radius: 35px;
+    margin: 20px;
+    width: 97vw;
+}
+
+/* add interview form */
+
+#add-interview-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.add-interview-form-element {
+    width: 100%;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5vh 0;
+}
+
+.add-interview-form-element input {
+    font-size: 1rem;
+}
+
+#add-interview-form-submit {
+    width: 10vw;
+    margin-left: 30vw;
+}
+
+/* Interview List */
+
+th, td {
+    border: solid black 1px;
+    text-align: center;
+    font-size: 0.8rem;
+    overflow: hidden;
+} 
+
+#interview-list {
+    margin: 10px 10px;
+    padding: 0 2vw;
+    width: 100%;
+    table-layout: fixed;
+}
+
+#no-interview-found {
+    font-size: 2rem;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}

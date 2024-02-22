@@ -20,7 +20,7 @@ header {
 }
 
 #site-title {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 #site-options {
@@ -29,7 +29,7 @@ header {
     align-items: center;
     height: 100%;
     width: 25%;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 
 #site-options a {

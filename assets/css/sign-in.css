@@ -1,7 +1,7 @@
 #sign-in-container {
     width: 40%;
     height: 55vh;
-    font-size: 1.6rem;
+    font-size: 1rem;
     background-color: var(--primary-theme-color);
 }
   
@@ -27,30 +27,17 @@ form {
 }
   
 form input {
-    font-size: 1.6rem;
+    font-size: 1rem;
     width: 50%;
     position: absolute;
     right: 0;
 }
   
 button {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 10% 0;
     border-width: 0;
     background-color: var(--tertiary-theme-color);
     color: var(--secondary-theme-color);
     padding: 10px;
-}
-
-
-#error-message-container {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    background-color: var(--primary-theme-color);
-    padding: 10px;
-    font-size: 1.2rem;
-    opacity: 0;
-    transition: opacity 1s ease-in-out; 
-    ;
 }

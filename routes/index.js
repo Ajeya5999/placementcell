@@ -17,6 +17,7 @@ router.get('/', homeController.home); //Index / Entry Page
 router.use('/dashboard', passport.checkAuthentication, require('./dashboard')); //Routes for Dashboard
 router.use('/users', require('./users'));  //Routes for employees
 router.use('/student', require('./student')); //Routes for adding students
+router.use('/interview', require('./interview')); //Routes for adding interviews
 // router.all('*', homeController.notFound); //For Non Existant Routes  
 
 module.exports = router;

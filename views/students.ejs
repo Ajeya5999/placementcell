@@ -1,10 +1,4 @@
-<link rel="stylesheet" href="/css/student.css">
-
-<% if(messages.info) { %>
-    <div id="message-container">
-        <%= messages.info %>
-    </div>
-<% } %>
+<link rel="stylesheet" href="/css/students.css">
 
 <div id="student-container"> 
     <div id="student-options-container">
@@ -17,6 +11,10 @@
             <div class="add-student-form-element">
                 <label for="student-name"> Student Name </label>
                 <input type="text" id="student-name" name="name" placeholder="Student's Full Name" autocomplete="name" required>
+            </div>
+            <div class="add-student-form-element">
+                <label for="student-email"> Student Email </label>
+                <input type="text" id="student-email" name="email" placeholder="Student's Email" autocomplete="email" required>
             </div>
             <div class="add-student-form-element">
                 <label for="student-batch"> Student Batch </label>
@@ -54,6 +52,7 @@
             <table id="student-list">
             <tr>
                 <th> Student Name </th>
+                <th> Student Email </th>
                 <th> Student Batch </th>
                 <th> Student College </th>
                 <th> Student Status </th>
@@ -64,6 +63,7 @@
             <% for(student of student_list) { %>
                 <tr>
                     <td> <%= student.name %> </td>
+                    <td> <%= student.email %> </td>
                     <td> <%= student.batch %> </td>
                     <td> <%= student.college %> </td>
                     <td> <%= student.status %> </td>
@@ -79,4 +79,4 @@
     </div>
 </div>
 
-<script src="/javascript/student.js"></script>
+<script src="/javascript/students.js"></script>
