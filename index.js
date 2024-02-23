@@ -26,7 +26,7 @@ const connectMongo = require('connect-mongo');
 
 const flash = require('express-flash');
 
-//Using encoding to get data
+//Using urlEncoded to encode data
 
 app.use(express.urlencoded());
 

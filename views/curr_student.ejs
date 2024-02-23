@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="/css/curr_student.css">
+
+<h1> Student Details </h1>
+<h3> Note:- Please leave the fields empty for not updating them </h3>
+
+<!-- update/delete form -->
+
+<form method="post" action="/dashboard/student/update/<%= student._id %>" id="update-student-form">
+    <div class="update-student-form-element">
+        <label for="curr-student-name">Current Student Name: </label>
+        <div id="curr-student-name"> <%= student.name %> </div>
+        <br>
+        <label for="new-student-name"> New Student Name </label>
+        <input type="text" id="new-student-name" name="name" placeholder="Student's Full Name" autocomplete="name">
+    </div>
+    <div class="update-student-form-element">
+        <label for="curr-student-email">Current Student Email: </label>
+        <div id="curr-student-email"> <%= student.email %> </div>
+        <br>
+        <label for="new-student-email"> New Student Email </label>
+        <input type="text" id="new-student-email" name="email" placeholder="Student's Email" autocomplete="email">
+    </div>
+    <div class="update-student-form-element">
+        <label for="curr-student-batch">Current Student Batch: </label>
+        <div id="curr-student-batch"> <%= student.batch %> </div>
+        <br>
+        <label for="new-student-batch"> New Student Batch </label>
+        <input type="text" id="new-student-batch" name="batch" placeholder="Student's Batch" autocomplete="on">
+    </div>
+    <div class="update-student-form-element">
+        <label for="curr-student-college">Current Student College: </label>
+        <div id="curr-student-college"> <%= student.college %> </div>
+        <br>
+        <label for="new-student-college"> New Student College </label>
+        <input type="text" id="new-student-college" name="college" placeholder="Student's College" autocomplete="on">
+    </div>
+    <div class="update-student-form-element">
+        <label for="curr-student-status">Current Student Status: </label>
+        <div id="curr-student-status"> <%= student.status %> </div>
+        <br>
+        <label> 
+            <div id="new-student-status-label"> New Student Status </div> 
+            <input type="radio" class="student-status" name="status" value="placed"> Placed
+            <input type="radio" class="student-status" name="status" value="not placed"> Not Placed 
+        </label>
+    </div>
+    <div class="update-student-form-element">
+        <label for="curr-student-dsa-score"> Current DSA Final Score: </label>
+        <div id="curr-student-dsa-score"> <%= student.dsa_score %> </div>
+        <br>
+        <label for="new-student-dsa-score"> New DSA Final Score </label>
+        <input type="number" id="new-student-dsa-score" name="dsa_score" placeholder="DSA Score here">
+    </div>
+    <div class="update-student-form-element">
+        <label for="curr-student-webd-score"> Current Web-D Final Score: </label>
+        <div id="curr-student-webd-score"> <%= student.webd_score %> </div>
+        <br>
+        <label for="student-webd-score"> New Web-D Final Score: </label>
+        <input type="number" id="student-webd-score" name="webd_score" placeholder="Web-D Score here">
+    </div>
+    <div class="update-student-form-element">
+        <label for="curr-student-react-score"> Current React Final Score: </label>
+        <div id="curr-student-react-score"> <%= student.react_score %> </div>
+        <br>
+        <label for="new-student-react-score"> New React Final Score </label>
+        <input type="number" id="new-student-react-score" name="react_score" placeholder="React Score here">
+    </div>
+    <div class="update-student-form-element" id="update-student-form-multiButtons">
+        <button type="submit" class="update-student-form-button" id="update-student-form-submit">Update Student</button>
+        <button type="submit" class="update-student-form-button" id="delete-student-form-submit" formaction="/dashboard/student/delete/<%= student._id %>">Delete Student</button>
+        <button type="submit" class="update-student-form-button" id="back-student-form-submit" formaction="/dashboard/student/" formmethod="get">Back</button>
+    </div>
+</form>

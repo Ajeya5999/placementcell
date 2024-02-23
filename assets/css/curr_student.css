@@ -1,0 +1,39 @@
+h1 {
+    text-align: center;
+}
+
+h3 {
+    margin-left: 1vw;
+}
+
+br {
+    margin: 1vh 0;
+}
+
+/* Update Student Form */
+
+#update-student-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.update-student-form-element {
+    width: 45%;
+    margin: 1vh 2%;
+}
+
+#update-student-form-multiButtons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.update-student-form-button {
+    height: 5vh;
+    width: 10vw;
+}
+
+#curr-student-id {
+    display: none;
+}

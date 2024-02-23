@@ -7,7 +7,7 @@
     </div>
     <div id="add-interview-container" class="interview-task-container">
         <h1>Add Interview</h1>
-        <form method="post" action="/interview/add" id="add-interview-form">
+        <form method="post" action="/dashboard/interview/add" id="add-interview-form">
             <div class="add-interview-form-element">
                 <label for="interview-company"> Interviewing Company </label>
                 <input type="text" id="interview-company" name="company" placeholder="Interviewing Company's name" autocomplete="organization" required>
@@ -37,7 +37,9 @@
             </tr>
             <% for(interview of interview_list) { %>
                 <tr>
-                    <td> <%= interview.company %> </td>
+                    <td> 
+                        <a href=""> <%= interview.company %> </a>
+                    </td>
                     <td> <%= interview.date.toString().substring(3, 15) %> </td>
                 </tr>
             <% } %>

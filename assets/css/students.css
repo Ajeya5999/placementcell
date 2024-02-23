@@ -60,6 +60,14 @@ th, td {
     overflow: hidden;
 } 
 
+td > a {
+    text-decoration: none;
+}
+
+td > a:hover {
+    text-decoration: underline;
+}
+
 #student-list {
     margin: 10px 10px;
     padding: 0 2vw;

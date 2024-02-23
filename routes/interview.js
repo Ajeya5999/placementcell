@@ -7,6 +7,7 @@ const router = express.Router();
 
 const interviewController = require('../controllers/interview_controller');
 
+router.get('/', interviewController.interviews); //Get Interviews page
 router.post('/add', interviewController.addInterview); //Adding interview to the list
 
 module.exports = router;

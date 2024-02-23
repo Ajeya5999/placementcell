@@ -9,8 +9,8 @@ const dashboardController = require('../controllers/dashboard_controller');
 
 // Setting Dashboard Routes
 
-router.get('/student', dashboardController.student); //Get Students page
-router.get('/interviews', dashboardController.interviews); //Get Interviews page
+router.use('/student', require('./student')); //Routes for students
+router.use('/interview', require('./interview')); //Routes for interviews
 router.get('/job_listings', dashboardController.listinngs); //Get Job Listings page
 
 module.exports = router;

@@ -8,8 +8,8 @@
         <div id="site-title">Placement Cell</div>
     </div>
     <div id="site-options">
-        <% if(title != "Student List") { %> <a href="/dashboard/student">Students</a> <% } %>
-        <% if(title != "Interviews") { %> <a href="/dashboard/interviews">Interviews</a> <% } %>
+        <% if(title != "Student List" && title != "Current Student") { %> <a href="/dashboard/student">Students</a> <% } %>
+        <% if(title != "Interviews") { %> <a href="/dashboard/interview">Interviews</a> <% } %>
         <% if(title != "Job Listings") { %> <a href="/dashboard/job_listings">Job Listings</a> <% } %>
         <a href="/users/sign-out"> Logout </a>
     </div>

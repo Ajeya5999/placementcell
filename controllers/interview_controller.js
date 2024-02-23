@@ -1,4 +1,22 @@
-const Interview = require('../models/interviews');
+const Interview = require('../models/interviews'); // Getting Interview Model
+const Student = require('../models/student'); // Getting Student Model
+
+module.exports.interviews = async function(req, res) {
+    let studentList, interviewList;
+    try {
+        studentList = await Student.find({}).select('_id email');
+        interviewList = await Interview.find({});
+        return res.render('interviews', {
+            title: "Interviews",
+            student_list: studentList,
+            interview_list: interviewList
+        });
+    }
+    catch(err) {
+        console.log(err);
+        return res.redirect('/');
+    }
+};
 
 module.exports.addInterview = async function(req, res) {
     let {company, id, date} = req.body;

@@ -7,7 +7,7 @@
     </div>
     <div id="add-student-container" class="student-task-container">
         <h1>Add Student</h1>
-        <form method="post" action="/student/add" id="add-student-form">
+        <form method="post" action="/dashboard/student/add" id="add-student-form">
             <div class="add-student-form-element">
                 <label for="student-name"> Student Name </label>
                 <input type="text" id="student-name" name="name" placeholder="Student's Full Name" autocomplete="name" required>
@@ -62,7 +62,9 @@
             </tr>
             <% for(student of student_list) { %>
                 <tr>
-                    <td> <%= student.name %> </td>
+                    <td> 
+                        <a href="/dashboard/student/currStudent/<%= student._id %>"> <%= student.name %> </a>
+                    </td>
                     <td> <%= student.email %> </td>
                     <td> <%= student.batch %> </td>
                     <td> <%= student.college %> </td>
