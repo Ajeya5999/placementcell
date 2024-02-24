@@ -35,7 +35,18 @@ const studentSchema = new mongoose.Schema({
     react_score: {
         type: Number,
         required: true
-    }
+    },
+    interviews: [{
+        interview: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Interview'
+        },
+        result: {
+            type: String,
+            required: true
+        },
+        _id: false
+    }]
 }, {
     timestamps: true
 });

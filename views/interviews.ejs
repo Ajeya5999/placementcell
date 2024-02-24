@@ -38,7 +38,7 @@
             <% for(interview of interview_list) { %>
                 <tr>
                     <td> 
-                        <a href=""> <%= interview.company %> </a>
+                        <a href="/dashboard/interview/currInterview/<%= interview._id %>"> <%= interview.company %> </a>
                     </td>
                     <td> <%= interview.date.toString().substring(3, 15) %> </td>
                 </tr>

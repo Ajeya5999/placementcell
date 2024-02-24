@@ -1,9 +1,12 @@
 const Student = require('../models/student'); //Getting student model
+const Interview = require('../models/interviews'); //Getting interview model
 
 module.exports.student = async function(req, res) {
     let studentList;
     try {
-        studentList = await Student.find({});
+        studentList = await Student.find({})
+        .select('_id name email batch college status dsa_score webd_score react_score')
+        .exec();
         return res.render('students', {
             title: "Student List",
             student_list: studentList
@@ -35,7 +38,9 @@ module.exports.addStudent = async function(req, res) {
 module.exports.showStudent = async function(req, res) {
     let studentId = req.params.id;
     try {
-        let student = await Student.findById(studentId);
+        let student = await Student.findById(studentId)
+        .select('_id name email batch college status dsa_score webd_score react_score')
+        .exec();
         if(student) {
             return res.render('curr_student', {
                 title: "Current Student",
@@ -80,7 +85,17 @@ module.exports.updateStudent = async function(req, res) {
 module.exports.deleteStudent = async function(req, res) {
     let id = req.params.id;
     try {
-        let temp = await Student.findByIdAndDelete(id);
+        let temp1 = await Student.findByIdAndDelete(id);
+        let interviews = await Interview.find({});
+        for(interview of interviews) {
+            if(interview.students.find((student) => { return student.student.toString() === id})) {
+                let temp2 = await Interview.findByIdAndUpdate(interview._id, {
+                    $pull: {
+                        students: {student: id}
+                    }
+                });
+            }
+        }
         req.flash('info', "Student has been deleted");
         return res.redirect("/dashboard/student");
     } catch(err) {

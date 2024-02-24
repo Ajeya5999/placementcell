@@ -2,7 +2,12 @@ h1 {
     text-align: center;
 }
 
-h3 {
+#interview-company-and-date {
+    display: flex;
+    justify-content: space-around;
+}
+
+#note {
     margin-left: 1vw;
 }
 
@@ -10,26 +15,27 @@ br {
     margin: 1vh 0;
 }
 
-/* Update Student Form */
+/* Update interview Form */
 
-#update-student-form {
+#update-interview-form {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     align-items: center;
 }
 
-.update-student-form-element {
+.update-interview-form-element {
     width: 45%;
     margin: 1vh 2%;
 }
 
-#update-student-form-multiButtons {
+#update-interview-form-multiButtons {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
 
-.update-student-form-button {
+.update-interview-form-button {
     height: 5vh;
     width: 10vw;
 }

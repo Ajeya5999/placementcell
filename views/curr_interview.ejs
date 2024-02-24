@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/css/curr_interview.css">
+
+<h1> Interview Details </h1>
+
+<h3 id="interview-company-and-date"> 
+    <div id="interview-company-name"> Company Name: <%= interview.company %> </div>
+    <div id="interview-date"> Date: <%= interview.date.toString().substring(3, 15) %> </div>
+</h3>
+
+<h3 id="note"> Note:- Please leave the fields empty for not updating them </h3>
+
+<!-- update/delete form -->
+
+<form method="post" action="/dashboard/interview/update/<%= interview._id %>" id="update-interview-form">
+    <div class="update-interview-form-element">
+        <label for="interview-student-email"> Student email list </label>
+        <select name="id" id="interview-student-email">
+            <option disabled selected value> -- select an email -- </option>
+            <% for (student of interview.students) { %>
+                <option value="<%= student.student._id %>"> <%= student.student.email %> </option>
+            <% } %>
+        </select>
+    </div>
+    <div class="update-interview-form-element">
+        <label for="curr-interview-result">Current Interview Result: </label>
+        <div id="curr-interview-result">  </div>
+        <br>
+        <label for="new-interview-result"> New Interview Result: 
+            <input type="radio" class="interview-result" name="result" value="pass"> Pass
+            <input type="radio" class="interview-result" name="result" value="fail"> Fail
+            <input type="radio" class="interview-result" name="result" value="didn't attempt"> Didn't Attempt
+            <input type="radio" class="interview-result" name="result" value="to be decided"> To Be Decided
+        </label>
+    </div>
+    <div class="update-interview-form-element" id="update-interview-form-multiButtons">
+        <button type="submit" class="update-interview-form-button" id="update-interview-form-submit">Update Student Result</button>
+        <button type="submit" class="update-interview-form-button" id="delete-interview-form-submit" formaction="/dashboard/interview/deleteStudent/<%= interview._id %>">Delete Interview Student</button>
+        <button type="submit" class="update-interview-form-button" id="delete-interview-form-submit" formaction="/dashboard/interview/delete/<%= interview._id %>">Delete Interview</button>
+        <button type="submit" class="update-interview-form-button" id="back-interview-form-submit" formaction="/dashboard/interview/" formmethod="get">Back</button>
+    </div>
+</form>
