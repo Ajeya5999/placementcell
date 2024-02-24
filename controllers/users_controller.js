@@ -1,14 +1,14 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
-module.exports.signUp = function(req, res) {
+module.exports.signUp = function(req, res) { //for rendering signup page
     return res.render('sign-up', {
         title: 'Sign Up',
         layout: './layouts/auth'
     });
 }
 
-module.exports.create = async function(req, res) {
+module.exports.create = async function(req, res) { //for creating an employee account
     let temp1 = req.body;
     if(temp1.password != temp1.confirm_password) {
         req.flash('error', "The password is not confirmed");
@@ -34,7 +34,7 @@ module.exports.create = async function(req, res) {
     }
 }
 
-module.exports.signIn = function(req, res) {
+module.exports.signIn = function(req, res) { //for rendering sign in page
     if(!req.user) {
         return res.render('sign-in', {
             title: 'Sign In',
@@ -44,18 +44,18 @@ module.exports.signIn = function(req, res) {
     return res.redirect('/dashboard/student');
 }
 
-module.exports.createSession = function(req, res){
+module.exports.createSession = function(req, res){  //for signing in to the web app
     req.flash('info', "logged in");
     return res.redirect('/');
 };
 
-module.exports.destroySession = function(req, res){
+module.exports.destroySession = function(req, res){ //for loging out the created session
     req.logout(function(err){
         if (err) { 
             console.log(err);
             return;
         }
-        // req.flash('message', 'You have been logged out');
+        req.flash('info', 'You have been logged out');
         return res.redirect('/users/sign-in');
     })
 };

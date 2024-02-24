@@ -1,7 +1,7 @@
 const Student = require('../models/student'); //Getting student model
 const Interview = require('../models/interviews'); //Getting interview model
 
-module.exports.student = async function(req, res) {
+module.exports.student = async function(req, res) { //render student page
     let studentList;
     try {
         studentList = await Student.find({})
@@ -18,7 +18,7 @@ module.exports.student = async function(req, res) {
     }
 };
 
-module.exports.addStudent = async function(req, res) {
+module.exports.addStudent = async function(req, res) { //adds student to student list
     let temp1 = req.body;
     try {
         let student = await Student.find({email: temp1.email});
@@ -35,7 +35,7 @@ module.exports.addStudent = async function(req, res) {
     }
 }
 
-module.exports.showStudent = async function(req, res) {
+module.exports.showStudent = async function(req, res) { //shows detials of a perticular student
     let studentId = req.params.id;
     try {
         let student = await Student.findById(studentId)
@@ -56,7 +56,7 @@ module.exports.showStudent = async function(req, res) {
     }
 }
 
-module.exports.updateStudent = async function(req, res) {
+module.exports.updateStudent = async function(req, res) { //upadting student details
     let {name, email, batch, college, status, dsa_score, webd_score, react_score} = req.body, id = req.params.id;
     try {
         let currStudent = await Student.findById(id);
@@ -82,7 +82,7 @@ module.exports.updateStudent = async function(req, res) {
     }
 }
 
-module.exports.deleteStudent = async function(req, res) {
+module.exports.deleteStudent = async function(req, res) { //delete student from list
     let id = req.params.id;
     try {
         let temp1 = await Student.findByIdAndDelete(id);

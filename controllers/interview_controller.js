@@ -1,7 +1,7 @@
 const Interview = require('../models/interviews'); // Getting Interview Model
 const Student = require('../models/student'); // Getting Student Model
 
-module.exports.interviews = async function(req, res) {
+module.exports.interviews = async function(req, res) { //rendring interviews page.
     let studentList, interviewList;
     try {
         studentList = await Student.find({})
@@ -22,14 +22,14 @@ module.exports.interviews = async function(req, res) {
     }
 };
 
-module.exports.addInterview = async function(req, res) {
+module.exports.addInterview = async function(req, res) { //adding interviews
     let {company, id, date} = req.body;
     try {
         let interview = await Interview.findOne({company: company, date: date});
-        if(interview) {
-            if(interview.students.find((student) => { return student.student.toString() === id})) {
+        if(interview) { //if an interview on thee perticular date already exists
+            if(interview.students.find((student) => { return student.student.toString() === id})) { // if student is already assigned to give the interview
                 req.flash('error', "Interview for given student has already been scheduled");
-            } else {
+            } else { // else assign the student to the interview
                 let temp1 = await Interview.updateOne({_id: interview._id}, {
                     $push: {
                         students: {
@@ -48,7 +48,7 @@ module.exports.addInterview = async function(req, res) {
                 });
                 req.flash('info', "Interview has been added");
             }
-        } else {
+        } else { //create a new interview and assign the student the created interview  
             let students = [{student: id, result: "To Be Decided"}], temp1 = await Interview.create({
                 company: company,
                 students: students,
@@ -74,7 +74,7 @@ module.exports.addInterview = async function(req, res) {
     } 
 }
 
-module.exports.showInterview = async function(req, res) {
+module.exports.showInterview = async function(req, res) { //show a perticular interview
     let interviewId = req.params.id;
     try {
         let interview = await Interview.findById(interviewId)
@@ -95,7 +95,7 @@ module.exports.showInterview = async function(req, res) {
     }
 }
 
-module.exports.updateInterview = async function(req, res) {
+module.exports.updateInterview = async function(req, res) { //update an interview result
     let studentId = req.body.id, interviewId = req.params.id;
         try {
             if(studentId) {
@@ -128,7 +128,7 @@ module.exports.updateInterview = async function(req, res) {
         }
 }
 
-module.exports.removeStudent = async function(req, res) {
+module.exports.removeStudent = async function(req, res) { //remove assigned student from interview
     let studentId = req.body.id, interviewId = req.params.id;
     if(studentId) {
         try {
@@ -153,7 +153,7 @@ module.exports.removeStudent = async function(req, res) {
     return res.redirect('back');
 }
 
-module.exports.deleteInterview = async function(req, res) {
+module.exports.deleteInterview = async function(req, res) { //delete the interview
     let id = req.params.id;
     try {
         let temp1 = await Interview.findByIdAndDelete(id);
