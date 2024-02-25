@@ -17,7 +17,7 @@
         <select name="id" id="interview-student-email">
             <option disabled selected value> -- select an email -- </option>
             <% for (student of interview.students) { %>
-                <option value="<%= student.student._id %>"> <%= student.student.email %> </option>
+                <option value="<%= student.student._id %>" student-result="<%= student.result %>" class="student-interview-result-email"> <%= student.student.email %> </option>
             <% } %>
         </select>
     </div>
@@ -39,3 +39,5 @@
         <button type="submit" class="update-interview-form-button" id="back-interview-form-submit" formaction="/dashboard/interview/" formmethod="get">Back</button>
     </div>
 </form>
+
+<script src="/javascript/curr_interview.js"></script>
