@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/css/job_listings.css">
+
+<h1> Job Listings </h1>
+
+<div id="job-listings-container">
+    <% for(job of jobs.results) { %>
+        <div class="job-listings-element">
+            <div class="job-details-left">
+                <h2> <%= job.name %> </h2>
+                <div class="job-location"> Location:- <%= job.locations[0].name %> </div>
+                <div class="job-publish-date"> Publication Date:- <%= job.publication_date.toString().substring(0, 10) %> </div>
+            </div>
+            <div class="job-detials-right">
+                <div class="job-ref"> 
+                    <a href="<%= job.refs.landing_page %>"> Job Link </a> 
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>

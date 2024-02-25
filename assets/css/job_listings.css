@@ -1,0 +1,25 @@
+h1 {
+    text-align: center;
+}
+
+#job-listings-container {
+    margin: 0 2vw;
+    padding: 0 1vw;
+    border: solid var(--secondary-theme-color) 3px;
+}
+
+.job-listings-element {
+    width: 100%;
+    padding: 0 0 1vh 1vw;
+    border: solid var(--secondary-theme-color) 1px;
+    margin: 1vh 0;
+    box-sizing: border-box;
+}
+
+.job-details-left {
+    width: 75%;
+}
+
+.job-details-left > div {
+    width: 100%;
+}
