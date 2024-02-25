@@ -1,5 +1,7 @@
 const Student = require('../models/student'); //Getting student model
 const Interview = require('../models/interviews'); //Getting interview model
+const json2csv = require('json2csv').parse; //Getting json2csv for converting data to CSV
+const fs = require('fs'); //Getting fs for file management
 
 module.exports.student = async function(req, res) { //render student page
     let studentList;
@@ -98,6 +100,30 @@ module.exports.deleteStudent = async function(req, res) { //delete student from 
         }
         req.flash('info', "Student has been deleted");
         return res.redirect("/dashboard/student");
+    } catch(err) {
+        console.log("error", err);
+        return res.redirect('/');
+    }
+}
+
+module.exports.saveStudentsList = async function(req, res) { //downloading student data
+    try { 
+        const students = await Student.find({})
+        .populate('interviews.interview', 'company date')
+        .exec(),
+        fields = ['id', 'name', 'email', 'batch', 'college', 'status', 'dsa_score', 'webd_score', 'react_score', 'interviews'],
+        csv = json2csv(students, {fields});
+        fs.writeFile('Students.csv', csv, (err) => {
+            if(err) {
+                console.log("error", err);
+                res.redirect('/');
+            }
+            else {
+                return res.render('download', {
+                    title: "Download Student"
+                });
+            }
+        });
     } catch(err) {
         console.log("error", err);
         return res.redirect('/');

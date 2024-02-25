@@ -12,6 +12,6 @@ router.post('/add', studentController.addStudent); //Adding student to the list
 router.get('/currStudent/:id', studentController.showStudent); //Show the student that is clicked on
 router.post('/update/:id', studentController.updateStudent); //Update the perticular student
 router.post('/delete/:id', studentController.deleteStudent); //delete the perticular student
-
+router.get('/download', studentController.saveStudentsList); //download student list in csv format
 
 module.exports = router;
