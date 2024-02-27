@@ -1,17 +1,16 @@
 // Getting elements
 
-const studentMails = document.getElementsByClassName("student-interview-result-email");
+const studentMails = document.getElementById("interview-student-email");
 const statusBox = document.getElementById("curr-interview-result");
 
 // adding event listeners
 
-for(student of studentMails) {
-    student.addEventListener('click', showStatus);
-}
+studentMails.addEventListener('change', showStatus);
 
 // function
 
 function showStatus() {
-    let studentStatus = this.getAttribute("student-result");
+    let selectedOption = this.options[this.selectedIndex];
+    let studentStatus = selectedOption.getAttribute("student-result");
     statusBox.innerText = studentStatus; 
 }
