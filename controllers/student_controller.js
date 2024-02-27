@@ -1,7 +1,7 @@
 const Student = require('../models/student'); //Getting student model
 const Interview = require('../models/interviews'); //Getting interview model
-const json2csv = require('json2csv').parse; //Getting json2csv for converting data to CSV
-const fs = require('fs'); //Getting fs for file management
+const csvParser = require('json2csv').Parser; //Getting json2csv for converting data to CSV
+// const fs = require('fs'); //Getting fs for file management
 
 module.exports.student = async function(req, res) { //render student page
     let studentList;
@@ -111,19 +111,12 @@ module.exports.saveStudentsList = async function(req, res) { //downloading stude
         const students = await Student.find({})
         .populate('interviews.interview', 'company date')
         .exec(),
-        fields = ['id', 'name', 'email', 'batch', 'college', 'status', 'dsa_score', 'webd_score', 'react_score', 'interviews'],
-        csv = json2csv(students, {fields});
-        fs.writeFile('Students.csv', csv, (err) => {
-            if(err) {
-                console.log("error", err);
-                res.redirect('/');
-            }
-            else {
-                return res.render('download', {
-                    title: "Download Student"
-                });
-            }
-        });
+        fields = ['id', 'name', 'email', 'batch', 'college', 'status', 'dsa_score', 'webd_score', 'react_score', 'interviews'];
+        const csvObj = new csvParser({fields});
+        const csvData = csvObj.parse(students);
+        res.setHeader('Content-disposition', 'attachment; filename=students.csv');
+        res.setHeader('Content-Type', 'text/csv');
+        return res.status(200).end(csvData);
     } catch(err) {
         console.log("error", err);
         return res.redirect('/');
